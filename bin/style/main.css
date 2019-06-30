@@ -1,0 +1,35 @@
+body {
+	text-align:  center;
+
+	border: none;
+}
+
+* {
+	font-size: 14pt;
+	
+	width:  100%;
+
+	margin-top: 2%;
+
+	border:  1px solid black;
+}
+
+label, #fakeForm, .errMsg {
+	border: none;
+}
+
+#resultDesc{
+	width:  100%;
+	height: 40px;
+
+	font-size: 14pt;
+
+	scroll-behavior:  auto;
+}
+
+.errMsg {
+	font-size: 12pt;
+	font-weight: 900;
+
+	color: #580B0B;
+}

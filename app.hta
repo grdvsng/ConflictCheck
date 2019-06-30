@@ -1,0 +1,94 @@
+﻿<html>
+	<head>
+		<HTA:APPLICATION
+			APPLICATIONNAME="CONFLICT CHECK"
+			BORDER="DIALOG"
+			BORDERSTYLE="SUNKEN"
+			INNERBORDER="NO"
+			CAPTION="YES"
+			ICON="./icon.ico"
+			SCROLL="NO"
+			MAXIMIZEBUTTON="NO"
+			MINIMIZEBUTTON="NO"
+			SHOWINTASKBAR="YES"
+			SINGLEINSTANCE="YES"
+			RESIZE="NO"
+			SYSMENU="YES"
+			VERSION="1.0"
+			CONTEXTMENU="NO"
+		/>
+		<title>
+			CONFLICT CHECK
+		</title>
+		<link 
+			rel="stylesheet" 
+			type="text/css" 
+			href="./bin/style/main.css"
+		>
+		</link>
+		<script 
+			type="text/javascript"
+			src="./bin/js/prototypeModificator.js"
+		>	
+		</script>
+		<script 
+			type="text/javascript"
+			src="./bin/data/BaseMatrix.js"
+		>	
+		</script>
+		<script 
+			type="text/javascript"
+			src="./bin/js/mainUI.js"
+		>	
+		</script>
+		<script 
+			type="text/javascript"
+			src="./bin/js/withXLSX.js"
+		>	
+		</script>
+				<script 
+			type="text/javascript"
+			src="./bin/js/noXLSX.js"
+		>	
+		</script>
+		<script type="text/javascript">
+			var mainUI   = new mainUI(BaseMatrix),
+				_content = {
+					'ru-RU': {
+						XLSX: 'Проверка XLSX',
+						noXLSX: 'Быстрая проверка'
+					},
+
+					'eng': {
+						XLSX: 'Check with XLSX',
+						noXLSX: 'Fast checking'
+					}
+				};
+			window.resizeTo(280, 130);
+
+			function __setContentLanguage__(lang)
+			{
+				if (_content[lang] !== undefined) {
+					var xlsx   = document.getElementById('XLSX'),
+						noXlsx = document.getElementById('noXLSX');
+
+					xlsx.innerHTML   = _content[lang]['XLSX'];
+					noXlsx.innerHTML = _content[lang]['noXLSX'];
+				} else {
+					__setContentLanguage__('eng');
+				}
+			}
+
+			window.onload = function() 
+			{
+				__setContentLanguage__(navigator.systemLanguage)
+			}
+		</script>
+	</head>
+	<body>
+		<button id="XLSX" onclick="mainUI.setMode(withXLSX)">
+		</button>
+		<button id="noXLSX" onclick="mainUI.setMode(noXLSX)">
+		</button>
+	</body>
+</html>
